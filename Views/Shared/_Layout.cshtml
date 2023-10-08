@@ -1,0 +1,27 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <header>
+        <h1> Cinema Kryto</h1>
+        <img class="logo" alt="лого" src="images/logo.png">
+    </header>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="adrres">Улица Пушкина, дом колотушка 78</div>
+        <div class="number">8937456120</div>
+        <div id="descriptionOfSite">Сайт созданный, чтобы просто был пример кода :) </div>
+    </footer>
+</body>
+
+</html>
