@@ -1,0 +1,14 @@
+﻿@{
+	ViewBag.Title = "Cinema Cryto Admin panel";
+}
+@model IndexViewModel
+<div>
+    <form method="get" action="@Url.Action("CinemaEdit", "Admin")">
+        <p> <button type="submit">Добавить фильм</button> </p>
+    </form>
+</div>
+@foreach (var cinema in Model.Cinemas)
+{
+	await Html.RenderPartialAsync("MovieAdmin", cinema);
+}
+

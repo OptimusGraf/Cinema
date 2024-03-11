@@ -1,0 +1,12 @@
+﻿@model Shelude;
+<div class="movieShelude">
+	<div class="room"> Зал @Model.RoomNumber </div>
+	<div class="date"> Зал @Model.DateTime.Date.ToString() </div>
+	<div class="time"> @Model.DateTime.TimeOfDay.ToString()</div>
+	<div class="price"> @Model.Cost.ToString(). </div>
+	<div class="button">
+		<form method="get" action="index.html">
+			<p>  <button type="submit">Удалить</button> </p>
+		</form>
+	</div>
+</div>

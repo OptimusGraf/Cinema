@@ -1,0 +1,39 @@
+﻿@model CinemaViewModel
+<div class="movie">
+	<a href="@Model.TrailerRef">
+		<img class="imgOfMovie" src="@Url.Action("CinemaImage", "Home", new{ Model.Id})" alt="властелин колец">
+	</a>
+	<div class="information">
+		<h3 class="nameOfMovie">@Model.Name</h3>
+		<div class="tegsOfMovie"> @Model.Genre, @Model.Country, @Model.duration,</div>
+		<div class="descriptionOfMovie">
+			@Model.Description
+		</div>
+		<form method="get" action="index.html">
+			<p>  <button type="submit">Отредактировать</button> </p>
+		</form>
+		<form method="get" action="index.html">
+			<p>  <button type="submit">Удалить</button> </p>
+		</form>
+		<div class="shelude">
+			@foreach (var shelude in Model.Shelude)
+			{
+				await Html.RenderPartialAsync("SheludeAdmin", shelude);
+			}
+			<form method="post" action="index.html">
+				<text> Добавить показ</text>
+				<p><label>Зал:</label><input type="text" name="hall" /></p>
+				<p><label>Цена:</label><input type="number" name="price" /></p>
+				<p><label>Время:</label><input type="datetime" name="time" /></p>
+				<p>
+					<button type="submit">Отправить</button>
+					<button type="reset">Отмена</button>
+				</p>
+			</form>
+		</div>
+
+	
+
+	
+	</div>
+</div>

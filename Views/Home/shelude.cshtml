@@ -1,0 +1,6 @@
+﻿@model Shelude;
+<div class="movieShelude">
+	<div class="room"> Зал @Model.RoomNumber </div>
+	<div class="time"> @Model.DateTime.TimeOfDay.ToString()</div>
+	<div class="price"> @Model.Cost.ToString() р. </div>
+</div>

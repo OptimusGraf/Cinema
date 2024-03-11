@@ -1,0 +1,8 @@
+﻿@{
+	ViewBag.Title = "Cinema Cryto";
+}
+@model IndexViewModel
+@foreach (var cinema in Model.Cinemas)
+{
+await Html.RenderPartialAsync("movie",cinema);
+}

@@ -1,0 +1,20 @@
+﻿@model CinemaViewModel
+<div class="movie">
+	<a href="@Model.TrailerRef"> 
+	<img class="imgOfMovie" src="@Url.Action("CinemaImage", "Home", new{ Model.Id})" alt="властелин колец">
+	</a>
+	<div class="information">
+		<h3 class="nameOfMovie">@Model.Name</h3>
+		<div class="tegsOfMovie"> @Model.Genre, @Model.Country, @Model.duration,</div>
+		<div class="descriptionOfMovie">
+			@Model.Description
+		</div>
+
+		<div class="shelude">
+			@foreach (var shelude in Model.Shelude)
+			{
+				await Html.RenderPartialAsync("shelude", shelude);
+			}
+		</div>
+	</div>
+</div>
