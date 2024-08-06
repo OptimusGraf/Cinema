@@ -2,6 +2,7 @@
 {
     public class CinemaViewModel:Cinema
     {
+	
 		public CinemaViewModel(Cinema cinema) 
 		{
 			this.Id= cinema.Id;
@@ -12,7 +13,7 @@
 			this.Genre = cinema.Genre;
 			this.Age = cinema.Age;
 			this.duration = cinema.duration;
-			this.Shelude = cinema.Shelude.Where(s=>s.DateTime.Date==DateTime.Now.Date).ToList();
+		
 			this.TrailerRef = cinema.TrailerRef;
 		}	
 	

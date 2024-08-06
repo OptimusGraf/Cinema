@@ -4,12 +4,14 @@
     {
 		public List<CinemaViewModel> Cinemas { get; set; } 
 
-		public IndexViewModel(List<Cinema> cinemas)
+		public  IndexViewModel(List<Cinema> cinemas)
 		{
 			Cinemas = new List<CinemaViewModel>();
 			foreach (var cinema in cinemas)
 			{
-				this.Cinemas.Add(new CinemaViewModel(cinema));
+				CinemaViewModel cinemaView = new CinemaViewModel(cinema);
+				cinemaView.Shelude = cinema.Shelude.Where(s => s.DateTime.Date == DateTime.Now.Date).ToList();
+				this.Cinemas.Add(cinemaView);
 			}
 		}
 	}

@@ -1,9 +1,9 @@
 ﻿@{
 	ViewBag.Title = "Cinema Cryto Admin panel";
 }
-@model IndexViewModel
+@model AdminViewModel
 <div>
-    <form method="get" action="@Url.Action("CinemaEdit", "Admin")">
+    <form method="post" action="@Url.Action("CinemaEdit", "Admin")">
         <p> <button type="submit">Добавить фильм</button> </p>
     </form>
 </div>

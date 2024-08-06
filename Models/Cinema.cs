@@ -18,5 +18,21 @@ namespace Cinema.Models
 		public string TrailerRef { get; set; }
 
 		public List<Shelude> Shelude { get; set; } = new();
-	}
+		public Cinema()
+		{
+
+		}
+
+        public Cinema(byte[]? image, string name, string description, string country, string genre, int age, TimeOnly duration, string trailerRef)
+        {
+            Image = image;
+            Name = name;
+            Description = description;
+            Country = country;
+            Genre = genre;
+            Age = age;
+            this.duration = duration;
+            TrailerRef = trailerRef;
+        }
+    }
 }

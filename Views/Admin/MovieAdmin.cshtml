@@ -9,10 +9,10 @@
 		<div class="descriptionOfMovie">
 			@Model.Description
 		</div>
-		<form method="get" action="index.html">
+		<form method="post" action="@Url.Action("CinemaEdit", "Admin", new { Model.Id})">
 			<p>  <button type="submit">Отредактировать</button> </p>
 		</form>
-		<form method="get" action="index.html">
+		<form method="post" action="@Url.Action("DeleteCinema", "Admin", new {Model.Id})">
 			<p>  <button type="submit">Удалить</button> </p>
 		</form>
 		<div class="shelude">
@@ -20,11 +20,11 @@
 			{
 				await Html.RenderPartialAsync("SheludeAdmin", shelude);
 			}
-			<form method="post" action="index.html">
+			<form method="post" action="@Url.Action("AddToShelude", "Admin", new {Model.Id})">
 				<text> Добавить показ</text>
 				<p><label>Зал:</label><input type="text" name="hall" /></p>
 				<p><label>Цена:</label><input type="number" name="price" /></p>
-				<p><label>Время:</label><input type="datetime" name="time" /></p>
+				<p><label>Время:</label><input type="datetime-local" name="time" /></p>
 				<p>
 					<button type="submit">Отправить</button>
 					<button type="reset">Отмена</button>

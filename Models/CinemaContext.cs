@@ -10,7 +10,7 @@ namespace Cinema.Models
 
 		public CinemaContext(DbContextOptions<CinemaContext> options) : base(options)
 		{
-
+			//Database.EnsureDeleted();
 			Database.EnsureCreated();
 
 		}
@@ -18,9 +18,9 @@ namespace Cinema.Models
 		{ //мб стоит сделать рид ол байтс асинхронным
 			List<Cinema> cinemas = new List<Cinema>
 			{
-				new Cinema { Id=1, Age=18, Image=File.ReadAllBytes("C:\\Users\\iliam\\Desktop\\del\\cinema\\sitedrawing\\images\\lotr2.jpg"), Country="New Zeland", duration= new TimeOnly(2,20), Name="Властелин колец 1", Genre="Фэнтези", Description= "Сказания о Средиземье — это хроника Великой войны за Кольцо, войны, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал власть над всеми живыми тварями, но был обязан служить злу.",TrailerRef="https://www.youtube.com/watch?v=v6TjKMQisn0&t=39s&ab_channel=WBRussia" },
-			new Cinema { Id=2, Age=18, Image=File.ReadAllBytes("C:\\Users\\iliam\\Desktop\\del\\cinema\\sitedrawing\\images\\lotr1.jpg"), Country="New Zeland", duration= new TimeOnly(2,20), Name="Властелин колец 2 ", Genre="Фэнтези", Description= "Сказания о Средиземье — это хроника Великой войны за Кольцо, войны, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал власть над всеми живыми тварями, но был обязан служить злу." ,TrailerRef="https://www.youtube.com/watch?v=v6TjKMQisn0&t=39s&ab_channel=WBRussia" },
-			new Cinema { Id=3, Age=18, Image=File.ReadAllBytes("C:\\Users\\iliam\\Desktop\\del\\cinema\\sitedrawing\\images\\lotr2.jpg"), Country="New Zeland", duration= new TimeOnly(2,20), Name="Властелин колец 3 ", Genre="Фэнтези", Description= "Сказания о Средиземье — это хроника Великой войны за Кольцо, войны, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал власть над всеми живыми тварями, но был обязан служить злу." ,TrailerRef="https://www.youtube.com/watch?v=v6TjKMQisn0&t=39s&ab_channel=WBRussia" }
+				new Cinema { Id=1, Age=18, Image=File.ReadAllBytes("..\\sitedrawing\\images\\lotr2.jpg"), Country="New Zeland", duration= new TimeOnly(2,20), Name="Властелин колец 1", Genre="Фэнтези", Description= "Сказания о Средиземье — это хроника Великой войны за Кольцо, войны, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал власть над всеми живыми тварями, но был обязан служить злу.",TrailerRef="https://www.youtube.com/watch?v=v6TjKMQisn0&t=39s&ab_channel=WBRussia" },
+				new Cinema { Id=2, Age=18, Image=File.ReadAllBytes("..\\sitedrawing\\images\\lotr1.jpg"), Country="New Zeland", duration= new TimeOnly(2,20), Name="Властелин колец 2 ", Genre="Фэнтези", Description= "Сказания о Средиземье — это хроника Великой войны за Кольцо, войны, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал власть над всеми живыми тварями, но был обязан служить злу." ,TrailerRef="https://www.youtube.com/watch?v=v6TjKMQisn0&t=39s&ab_channel=WBRussia" },
+				new Cinema { Id=3, Age=18, Image=File.ReadAllBytes("..\\sitedrawing\\images\\lotr2.jpg"), Country="New Zeland", duration= new TimeOnly(2,20), Name="Властелин колец 3 ", Genre="Фэнтези", Description= "Сказания о Средиземье — это хроника Великой войны за Кольцо, войны, длившейся не одну тысячу лет. Тот, кто владел Кольцом, получал власть над всеми живыми тварями, но был обязан служить злу." ,TrailerRef="https://www.youtube.com/watch?v=v6TjKMQisn0&t=39s&ab_channel=WBRussia" }
 			};
 
 			List<Shelude> sheludes = new List<Shelude> {
@@ -42,7 +42,6 @@ namespace Cinema.Models
 			this.Sheludes.Load();
 			// фильмы которые в прокате сегодня
 			List<Cinema> list = this.Cinemas.Where(c => c.Shelude.Any(s => s.DateTime.Date == DateTime.Now.Date)).ToList();
-			; 
 			return list;
 			
 		}

@@ -23,7 +23,7 @@ namespace Cinema.Controllers
 		}
 
 	//	[Route("image/{id:int}")]
-		public async Task<IActionResult> CinemaImage(int id)
+		public async Task<IActionResult> CinemaImage(int id) // добавить чтобы работало не только jpg 
 		{
 			byte[] image= dataBase.Cinemas.FirstOrDefault(c=> c.Id== id)?.Image;
 			return File(image, "image/jpg");
